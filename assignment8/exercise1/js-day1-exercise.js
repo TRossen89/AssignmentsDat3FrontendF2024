@@ -152,11 +152,47 @@ console.log("Mapped array from attached array: \n" + mappedArray2);
 //###################################################################
 // 1.3
 
+// 1.3.1
+
+let arrayOfDivs = document.getElementsByTagName('div');
 
 
+Array.from(arrayOfDivs).forEach(element => {
+    element.style.padding = "20px"; 
+    element.style.border = "solid black";
+    element.style.margin = "10px"; 
+    
+    element.style.width = "200px";
+    element.style.height = "100px";
+
+    element.style.backgroundColor = "red"
+});
+
+
+// 1.3.2
+
+document.getElementById('colorButton').addEventListener('click', function() {
+    
+    let div1 = document.getElementById("div1");
+    let div2 = document.getElementById("div2");
+    let div3 = document.getElementById("div3");
+  
+    div1.style.backgroundColor = "grey";
+    div2.style.backgroundColor = "white";
+    div3.style.backgroundColor = "gold";
+
+});
 
 //###################################################################
-// 1.1.1
+// 1.4
+
+// See js-day1-exercise1-page2.js
+
+
+
+
+
+
 //###################################################################
 // 1.1.1
 //###################################################################
