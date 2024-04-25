@@ -1,15 +1,63 @@
 
 .mydiv { 
-    width: 100px; 
+    width: 200px; 
     height: 50px;
     border: solid black;
     background-color: rgb(128, 128, 94); 
     margin: 5px; 
   }
 
-#outer{
+.outer{
+    margin: 2px;
     padding: 10px;
     border: solid black;
     background-color: rgb(67, 127, 121);
 
   }
+
+#output{
+    margin: 5px;
+    background-color: white;
+    border: solid black;
+    width: 200px;
+    height: 30px;
+}
+
+#outputHeadline{
+    margin: 8px;
+    font-size: 18px;
+
+}
+
+#tableForCars{
+
+    width: 800px;
+    height: 400px;
+    background-color: lightgray;
+    border: solid black;
+    border-collapse: true;
+
+}
+
+
+#tableForCars td{
+
+    padding-left: 10px;
+    background-color: lightgray;
+    
+    border-bottom: solid thin darkgray;
+
+}
+
+#tableForCars td:nth-child(4) {
+    width: 350px;
+} 
+
+#tableForCars th{
+
+    background-color: lightgray;
+    
+    border-bottom: solid thick darkgray;
+
+}
+
