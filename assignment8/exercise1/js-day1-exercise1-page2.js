@@ -153,9 +153,12 @@ let cars = [
     { id: 5, year: 2005, make: 'Volvo', model: 'V70', price: 44799 }
   ];
 
-function makingHtmlTable (cars){
 
-    let mappedArray = cars.map((element) => "<tr> <td>" + element.id + "</td> <td> " + element.year + " </td> <td> " 
+// 1.6.1
+
+function makingHtmlTable (arrayOfCars){
+
+    let mappedArray = arrayOfCars.map((element) => "<tr> <td>" + element.id + "</td> <td> " + element.year + " </td> <td> " 
      + element.make + " </td> <td> " + element.model + " </td> <td> " + element.price + " </td> </tr>");
 
     let arrayAsString = mappedArray.join(" ");
@@ -163,8 +166,86 @@ function makingHtmlTable (cars){
     let htmlTableAsString = "<table id='tableForCars'> <tr> <th> Id </th> <th> Year </th> <th> Make </th> <th> Model </th> <th> Price </th> </tr>" + arrayAsString + "</table>";
 
     document.getElementById("divForCars").innerHTML = htmlTableAsString;
-
 }
 
-
 makingHtmlTable(cars);
+
+
+// 1.6.2
+
+document.getElementById("filterByPriceButton").addEventListener('click', function  (event)
+{
+
+    event.preventDefault();
+
+    let maxPrice = document.getElementById("maxPriceInput").value;
+
+    let mappedArray = cars.filter((element) => element.price < maxPrice);
+
+    makingHtmlTable(mappedArray);
+
+    document.getElementById("divForCars").innerHTML = htmlTableAsString;
+})
+
+
+//###################################################################
+// 1.7
+
+
+document.getElementById("buttons").addEventListener('click', function(event){
+
+    event.preventDefault()
+
+    let valueFromButton = event.target.innerText;
+
+    document.getElementById('display').innerText += valueFromButton;
+
+})
+
+
+document.getElementById("calculate").addEventListener('click', function(event){
+
+    event.stopPropagation();
+
+
+    let calculationInDisplay = document.getElementById('display').innerText;
+    
+    let plusIndex = calculationInDisplay.indexOf("+")
+    let minusIndex = calculationInDisplay.indexOf("-")
+    let divideIndex = calculationInDisplay.indexOf("/")
+    let multiplyIndex = calculationInDisplay.indexOf("*")
+
+    let displaySplitOnOperators = calculationInDisplay.split(/[\+\-\*\/]/);
+
+    if(plusIndex != -1){
+
+        let result = Number(displaySplitOnOperators[0]) + Number(displaySplitOnOperators[1]);
+        document.getElementById('display').innerText = result
+
+    }
+    if(minusIndex != -1){
+
+        let result = Number(displaySplitOnOperators[0]) - Number(displaySplitOnOperators[1]);
+        document.getElementById('display').innerText = result
+
+    }
+    if(divideIndex != -1){
+
+        let result = Number(displaySplitOnOperators[0]) / Number(displaySplitOnOperators[1]);
+        document.getElementById('display').innerText = result
+
+    }
+    if(multiplyIndex != -1){
+
+        let result = Number(displaySplitOnOperators[0]) * Number(displaySplitOnOperators[1]);
+        document.getElementById('display').innerText = result
+
+    }
+
+    //document.getElementById('display').innerText = eval(calculationInDisplay);
+
+})
+
+
+
+
