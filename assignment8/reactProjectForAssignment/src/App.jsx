@@ -7,6 +7,7 @@ import { text1, text2, text3 } from './file1.js'
 import person from './file2.js'
 import {males, females} from './file2.js'
 import {Welcome, MultiWelcome, WelcomePerson} from './file3.jsx'
+import JokeComponent from './file4.jsx'
 
 
 function App() {
@@ -51,6 +52,11 @@ function App() {
     <h2> Ex 3</h2>
 
     <MultiWelcome/>
+
+
+    <h2> Ex 4 - Chuck Norris joke: </h2>
+
+    <JokeComponent/>
 
 
   </>
