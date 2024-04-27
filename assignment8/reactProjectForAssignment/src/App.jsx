@@ -6,6 +6,7 @@ import upper from './file1.js'
 import { text1, text2, text3 } from './file1.js'
 import person from './file2.js'
 import {males, females} from './file2.js'
+import {Welcome, MultiWelcome, WelcomePerson} from './file3.jsx'
 
 
 function App() {
@@ -45,6 +46,13 @@ function App() {
     <p>{name2}</p>
     <p>{name3}</p>
     <p>{name4}</p>
+
+
+    <h2> Ex 3</h2>
+
+    <MultiWelcome/>
+
+
   </>
 }
 
