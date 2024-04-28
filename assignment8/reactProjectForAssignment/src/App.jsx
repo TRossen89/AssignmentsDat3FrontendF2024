@@ -7,7 +7,8 @@ import { text1, text2, text3 } from './file1.js'
 import person from './file2.js'
 import {males, females} from './file2.js'
 import {Welcome, MultiWelcome, WelcomePerson} from './file3.jsx'
-import JokeComponent from './file4.jsx'
+import JokeComponent, {JokeComponentAuto} from './file4.jsx'
+
 
 
 function App() {
@@ -31,13 +32,13 @@ function App() {
 
   return <>
 
-    <h2> Ex 1 </h2>
+    <h1> Ex 1 </h1>
 
     <p>{upper(text1)}</p>
     <p>{upper(text2)}</p>
     <p>{upper(text3)}</p>
   
-    <h2> Ex 2 </h2>
+    <h1> Ex 2 </h1>
 
     <p>First name: {firstName}</p>
     <p>Email: {email}</p>
@@ -49,7 +50,7 @@ function App() {
     <p>{name4}</p>
 
 
-    <h2> Ex 3</h2>
+    <h1> Ex 3</h1>
 
     <MultiWelcome/>
 
@@ -57,6 +58,9 @@ function App() {
     <h2> Ex 4 - Chuck Norris joke: </h2>
 
     <JokeComponent/>
+
+    <h2>Automated jokes for 60 seconds:</h2>
+    <JokeComponentAuto/>
 
 
   </>
