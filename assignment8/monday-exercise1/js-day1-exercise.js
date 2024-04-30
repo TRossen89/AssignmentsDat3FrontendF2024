@@ -4,7 +4,7 @@
 
 let names = ["Lars", "Peter", "Jan", "Bo"];
 
-
+/*
 // 1.1.2
 
 //----
@@ -15,6 +15,7 @@ function callbackForMyFilter (element){
     }
     return false;
 } 
+
 
 
 function myFilter (array, callback){
@@ -188,8 +189,14 @@ document.getElementById('colorButton').addEventListener('click', function() {
 
 // See js-day1-exercise1-page2.js
 
+*/
 
 
+const someAr = [0, 2];
+
+someAr = "hej";
+
+console.log(someAr);
 
 
 

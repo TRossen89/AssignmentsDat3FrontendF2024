@@ -1,8 +1,4 @@
 import * as React from "react"
-import { useReducer } from "react";
-
-
-
 
 function SvgComponent(props) {
 
@@ -17,13 +13,11 @@ function SvgComponent(props) {
         
         setCountryId(event.target.id);
 
-    
     }
 
     React.useEffect(() => {
 
         if(countryId){
-
 
         const fetchCountryData = () => {
 
