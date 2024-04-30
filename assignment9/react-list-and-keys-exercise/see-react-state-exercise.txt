@@ -1,0 +1,2 @@
+Both React state exercise (Counter.jsx) and React list and keys exercise (ListDemo.jsx) 
+are in the react-state-exercise folder. 
