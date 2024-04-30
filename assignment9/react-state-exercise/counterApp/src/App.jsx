@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { Counter } from './Counter'
 import { useEffect } from 'react'
+import ListDemo from './ListDemo'
 
 function App() {
   
@@ -13,6 +14,9 @@ function App() {
   return (
     <>
       <Counter initialValue={initialValueForCounter}/>
+
+
+      <ListDemo/>
     </>
   )
 }
