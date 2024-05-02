@@ -1,9 +1,9 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { fetchData } from '../../utils/persistenceFunction';
 
 
 
-const PersonForm = ({updated, setUpdated}) => {
+const PersonForm = ({updated, setUpdated, formFill, setFormFill}) => {
 
     const APIURL = "http://localhost:3000/api"
     
@@ -17,9 +17,9 @@ const PersonForm = ({updated, setUpdated}) => {
             "gender": e.target.gender.value}
         
         fetchData(APIURL, ()=>{}, 'POST', person)
-        setUpdated(!updated)
+        setUpdated(!updated)}
 
-    }
+
 
   return (
 
@@ -27,21 +27,21 @@ const PersonForm = ({updated, setUpdated}) => {
     <form onSubmit={addPerson}>
 
         <label htmlFor="id">Id</label>
-        <input id="1" type="number" readOnly placeholder="id" />
+        <input id="id" type="number" readOnly placeholder="id"/>
 
         <label htmlFor="name">Name</label>
-        <input id="name" type="text" placeholder="name" />
+        <input id="name" type="text" placeholder="name"/>
 
         <label htmlFor="age">Age</label>
-        <input id="age" type="number" min="1" max="120" placeholder="age" />
+        <input id="age" type="number" min="1" max="120" placeholder="age"/>
 
         <label htmlFor="email">Email</label>
-        <input id="email" type="email" placeholder="email" />
+        <input id="email" type="email" placeholder="email"/>
 
         <label htmlFor="gender">Gender</label>
         <select id="gender">
 
-            <option defaultChecked>Select Gender</option>
+            <option defaultChecked>Select gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="other">Other</option>

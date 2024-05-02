@@ -1,13 +1,35 @@
 import React, {useEffect, useState} from 'react'
 import { fetchData } from '../../utils/persistenceFunction'
 
-const PersonList = ({updated}) => {
+const PersonList = ({updated, setUpdated, formFill, setFormFill}) => {
 
     const [persons, setPersons] = useState([]); 
+    
+
     const APIURL = "http://localhost:3000/api"
-  
-    useEffect(()=>{
+
+/*
+    const handleEdit = (e) => {
+        fetchData(APIURL+"/"+e.target.id, setFormFill) 
+        setUpdated(!updated)
+    
+    }
+    */
+
+
+    const handleDelete = (e)=>{
         
+        fetch(
+            `http://localhost:3000/api/${e.target.id}`,
+        {
+            method: 'DELETE',
+        }).then(() => {
+            setUpdated(!updated);
+        });
+    }
+
+    useEffect(()=>{
+    
         fetchData(APIURL, setPersons) 
 
         }, [updated])
@@ -37,8 +59,8 @@ const PersonList = ({updated}) => {
             <td>{person.email}</td>
             <td>{person.gender}</td>
             <td>
-                <button>Edit</button>
-                <button>Delete</button>
+                <button id={person.id}>Edit</button>
+                <button id={person.id} onClick = {handleDelete}>Delete</button>
             </td>
             </tr>
         ))}

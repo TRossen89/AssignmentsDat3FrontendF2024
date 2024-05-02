@@ -34,48 +34,6 @@
       "name": "Michael",
       "email": "michael@test.com",
       "gender": "male"
-    },
-    {
-      "id": "61d9",
-      "age": "10",
-      "name": "nytest",
-      "email": "email@email.dk",
-      "gender": "female"
-    },
-    {
-      "id": "f3ad",
-      "age": "10",
-      "name": "test2",
-      "email": "test@email.dk",
-      "gender": "other"
-    },
-    {
-      "id": "efa6",
-      "age": "10",
-      "name": "sdsd",
-      "email": "dfdf@ami.dk",
-      "gender": "male"
-    },
-    {
-      "id": "6348",
-      "age": "10",
-      "name": "viprøver",
-      "email": "igen@hotmail.com",
-      "gender": "female"
-    },
-    {
-      "id": "8fcd",
-      "age": "10",
-      "name": "testete",
-      "email": "email@email.dk",
-      "gender": "female"
-    },
-    {
-      "id": "b646",
-      "age": "10",
-      "name": "testete",
-      "email": "email@email.dk",
-      "gender": "male"
     }
   ]
 }

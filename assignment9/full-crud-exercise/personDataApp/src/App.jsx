@@ -9,6 +9,7 @@ function App() {
   
   
   const [updated, setUpdated] = useState(false);
+  //const [formFill, setFormFill] = useState({"age": " ", "name": " ", "email": " ", "gender":"Select gender"})
   
   const getPersons = () => {
          
@@ -19,7 +20,7 @@ function App() {
     <>
     <div>
       <h1>Person data</h1>
-      <PersonForm updated = {updated} setUpdated= {setUpdated}/>
+      <PersonForm updated = {updated} setUpdated= {setUpdated} />
       <PersonList updated = {updated} setUpdated = {setUpdated}/>
     </div>
       
