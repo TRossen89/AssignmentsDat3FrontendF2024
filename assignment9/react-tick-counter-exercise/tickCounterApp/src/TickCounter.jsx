@@ -13,7 +13,6 @@ function TickCounter (){
       setStart(false);
       setMinutes(0);
       setSeconds(0);
-      
 
     }
 
