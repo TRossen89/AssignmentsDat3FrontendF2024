@@ -13,11 +13,13 @@ function TickCounter (){
       setStart(false);
       setMinutes(0);
       setSeconds(0);
+      
 
     }
 
     const startTimer = () => {
       setStart(true);
+      
     }
 
     useEffect(() => {
@@ -29,8 +31,7 @@ function TickCounter (){
 
           if(minutes == 0 && seconds == 0){
             setStart(false)
-            setMinutes(0)
-            setSeconds(0)
+            
           } else
 
           {
@@ -59,15 +60,17 @@ function TickCounter (){
 
           <div>
             <input
+              id="minutes"
               type="number"
               placeholder="Minutes"
-              //value={minutes}
+              value={minutes}
               onChange={(e) => setMinutes(parseInt(e.target.value))}
             />
             <input
+              id="seconds"
               type="number"
               placeholder="Seconds"
-              //value={seconds}
+              value={seconds}
               onChange={(e) => setSeconds(parseInt(e.target.value))}
             />
             <button onClick={startTimer}>Start</button>
