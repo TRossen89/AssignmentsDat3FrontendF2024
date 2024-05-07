@@ -3,7 +3,6 @@ import { fetchData } from '../../utils/persistenceFunction'
 
 const PersonList = ({editPerson, persons, deleteById}) => {
 
-    //const [persons, setPersons] = useState([]); 
     
   
     return (
@@ -31,7 +30,7 @@ const PersonList = ({editPerson, persons, deleteById}) => {
             <td>{person.email}</td>
             <td>{person.gender}</td>
             <td>
-                <button onClick={() => editPerson(person)}>Edit</button>
+                <button onClick={() => editPerson({...person})}>Edit</button>
                 <button onClick = {() => deleteById(person.id)}>Delete</button>
             </td>
             </tr>

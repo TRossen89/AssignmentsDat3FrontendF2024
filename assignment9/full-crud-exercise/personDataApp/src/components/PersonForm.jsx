@@ -23,13 +23,13 @@ const PersonForm = ({addOrUpdatePerson, blankPerson, personToEdit}) => {
         event.preventDefault();
 
         addOrUpdatePerson({...person});
-        setPerson(blankPerson)
+        //setPerson(blankPerson)
     }
 
 
     useEffect(
         ()=> {
-            setPerson(personToEdit);
+            setPerson({...personToEdit});
 
         }, [personToEdit]
     )
@@ -41,7 +41,7 @@ const PersonForm = ({addOrUpdatePerson, blankPerson, personToEdit}) => {
     <form onSubmit={handleSubmit}>
 
         <label htmlFor="id">Id</label>
-        <input id="id" type="number" readOnly placeholder="id" value={person.id} onChange={handleChange}/>
+        <input id="id"  readOnly placeholder="id" value={person.id} onChange={handleChange}/>
 
         <label htmlFor="name">Name</label>
         <input id="name" type="text" placeholder="name" value={person.name} onChange={handleChange}/>

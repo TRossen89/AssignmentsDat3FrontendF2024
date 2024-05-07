@@ -16,11 +16,12 @@ const blankPerson = {
 
 function App() {
   
-
   const [persons, setPersons] = useState([]);
-  const [personToEdit, setPersonToEdit] = useState(blankPerson);
+  const [personToEdit, setPersonToEdit] = useState({...blankPerson});
 
   const APIURL = "http://localhost:3000/api"
+
+
 
   function editPerson(person){
     setPersonToEdit(person)
@@ -34,7 +35,7 @@ function App() {
 
   function updatePerson(person){
     
-    fetchData(`${APIURL}/${person.id}`, setPersons(persons.map((p) => p.id === person.id ? {...person} : p)), 'PUT', person);
+    fetchData(`${APIURL}/${person.id}`, (personCreated) => setPersons(persons.map((p) => p.id === personCreated.id ? {...personCreated} : p)), 'PUT', person);
      
   }
 
@@ -60,11 +61,18 @@ function App() {
   }
 
 
+
+  function getPersons(callback){
+
+    fetchData(APIURL, callback) 
+  }
+
+
   useEffect(()=>{
     
-    fetchData(APIURL, setPersons) 
+    getPersons((data) => setPersons(data));
 
-    }, [])
+    }, []);
 
 
   return (
