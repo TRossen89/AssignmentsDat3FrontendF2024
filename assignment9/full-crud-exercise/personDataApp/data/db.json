@@ -23,17 +23,24 @@
     },
     {
       "id": "4",
-      "age": "45",
+      "age": "48",
       "name": "Karl",
       "email": "karl@test.com",
       "gender": "male"
     },
     {
-      "id": "5",
-      "age": "15",
-      "name": "Michael",
-      "email": "michael@test.com",
+      "id": "2535",
+      "age": "34",
+      "name": "Tobias Rossen",
+      "email": "acm1110@hotmail.com",
       "gender": "male"
+    },
+    {
+      "id": "da14",
+      "age": "34",
+      "name": "Tobias Rossen",
+      "email": "customer@email.dk",
+      "gender": "other"
     }
   ]
 }

@@ -3,50 +3,65 @@ import { fetchData } from '../../utils/persistenceFunction';
 
 
 
-const PersonForm = ({updated, setUpdated, formFill, setFormFill}) => {
+const PersonForm = ({addOrUpdatePerson, blankPerson, personToEdit}) => {
 
-    const APIURL = "http://localhost:3000/api"
+    const [person, setPerson] = useState({...personToEdit});
+
     
-    const addPerson = (e) => {
-        e.preventDefault();
+    function handleChange(event){
 
-        const person = {
-            "age": e.target.age.value,
-            "name": e.target.name.value,
-            "email": e.target.email.value,
-            "gender": e.target.gender.value}
-        
-        fetchData(APIURL, ()=>{}, 'POST', person)
-        setUpdated(!updated)}
+        const value = event.target.value;
+        const name = event.target.id;
 
+        setPerson({...person, [name] : value});
+    }
+
+
+
+    function handleSubmit(event)
+    {
+        event.preventDefault();
+
+        addOrUpdatePerson({...person});
+        setPerson(blankPerson)
+    }
+
+
+    useEffect(
+        ()=> {
+            setPerson(personToEdit);
+
+        }, [personToEdit]
+    )
 
 
   return (
 
     <div>
-    <form onSubmit={addPerson}>
+    <form onSubmit={handleSubmit}>
 
         <label htmlFor="id">Id</label>
-        <input id="id" type="number" readOnly placeholder="id"/>
+        <input id="id" type="number" readOnly placeholder="id" value={person.id} onChange={handleChange}/>
 
         <label htmlFor="name">Name</label>
-        <input id="name" type="text" placeholder="name"/>
+        <input id="name" type="text" placeholder="name" value={person.name} onChange={handleChange}/>
 
         <label htmlFor="age">Age</label>
-        <input id="age" type="number" min="1" max="120" placeholder="age"/>
+        <input id="age" type="number" min="1" max="120" placeholder="age" value={person.age} onChange={handleChange}/>
 
         <label htmlFor="email">Email</label>
-        <input id="email" type="email" placeholder="email"/>
+        <input id="email" type="email" placeholder="email" value={person.email} onChange={handleChange}/>
 
         <label htmlFor="gender">Gender</label>
-        <select id="gender">
+        <select id="gender" value={person.gender} onChange={handleChange}>
 
             <option defaultChecked>Select gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="other">Other</option>
         </select>
-        <button type="submit">Add</button>
+        <button type='submit'>Add</button>
+        <button type='button' onClick={() => setPerson(blankPerson)}> Reset </button>
 </form>
       
     </div>

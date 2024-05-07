@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 function Counter({initialValue}){
 
+    
     const [count, setCount] = useState(initialValue);
 
     useEffect(
@@ -13,6 +14,7 @@ function Counter({initialValue}){
 
 
     const handleClickPlus = () => setCount((count) => count + initialValue);
+    
     const handleClickMinus = () => setCount((count) => count - initialValue);
 
     return (<>

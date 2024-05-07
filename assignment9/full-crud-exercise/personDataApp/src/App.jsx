@@ -1,27 +1,78 @@
 import { useState, useEffect } from 'react'
 import PersonForm from './components/PersonForm'
 import PersonList from './components/PersonList'
-
-
+import { fetchData } from '../utils/persistenceFunction'
 import './styles/App.css'
+
+
+const blankPerson = { 
+  "id": '',
+  "age": '', 
+  "name": '',
+  "email": '',
+  "gender": ''
+
+}
 
 function App() {
   
-  
-  const [updated, setUpdated] = useState(false);
-  //const [formFill, setFormFill] = useState({"age": " ", "name": " ", "email": " ", "gender":"Select gender"})
-  
-  const getPersons = () => {
-         
+
+  const [persons, setPersons] = useState([]);
+  const [personToEdit, setPersonToEdit] = useState(blankPerson);
+
+  const APIURL = "http://localhost:3000/api"
+
+  function editPerson(person){
+    setPersonToEdit(person)
+
   }
+
+  function addPerson(person){
+
+    fetchData(APIURL, (personCreated)=>{setPersons([...persons, personCreated])}, 'POST', person)
+  }
+
+  function updatePerson(person){
+    
+    fetchData(`${APIURL}/${person.id}`, setPersons(persons.map((p) => p.id === person.id ? {...person} : p)), 'PUT', person);
+     
+  }
+
+  function addOrUpdatePerson(person){
+
+    if(person.id != ''){
+      updatePerson(person);
+    }
+    
+    else{
+      delete person.id;
+      addPerson(person);
+    }
+
+  }
+
+  
+  function deleteById(id){
+
+    fetchData(`${APIURL}/${id}`, ()=>{}, 'DELETE');
+
+    setPersons([...persons.filter(p => p.id != id)]);
+  }
+
+
+  useEffect(()=>{
+    
+    fetchData(APIURL, setPersons) 
+
+    }, [])
 
 
   return (
     <>
     <div>
       <h1>Person data</h1>
-      <PersonForm updated = {updated} setUpdated= {setUpdated} />
-      <PersonList updated = {updated} setUpdated = {setUpdated}/>
+      <PersonForm blankPerson = {blankPerson} personToEdit={personToEdit} addOrUpdatePerson={addOrUpdatePerson}/>
+      <PersonList persons ={persons} deleteById = {deleteById} editPerson={editPerson}/>
     </div>
       
     </>
